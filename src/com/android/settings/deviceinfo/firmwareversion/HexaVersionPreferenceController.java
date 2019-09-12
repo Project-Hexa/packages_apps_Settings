@@ -34,7 +34,8 @@ public class HexaVersionPreferenceController extends BasePreferenceController {
 
     private static final Uri INTENT_URI_DATA = Uri.parse("https://github.com/Project-Hexa/");
     private static final String TAG = "hexaDialogCtrl";
-    private static final HEXA_VERSION_PROPERTY = "ro.hexa.version";
+    private static final String ROM_VERSION_PROP = "ro.hexa.build.version";
+    private static final String ROM_RELEASETYPE_PROP = "ro.hexa.build.type";
     private final PackageManager mPackageManager = this.mContext.getPackageManager();
 
     public HexaVersionPreferenceController(Context context, String preferenceKey) {
@@ -46,9 +47,14 @@ public class HexaVersionPreferenceController extends BasePreferenceController {
     }
 
     public CharSequence getSummary() {
-        String hexa = SystemProperties.get(HEXA_VERSION_PROPERTY,
+        String hexaVersion = SystemProperties.get(ROM_VERSION_PROP,
                 mContext.getString(R.string.device_info_default));
-        return hexa;
+        String hexaReleasetype =  SystemProperties.get(ROM_RELEASETYPE_PROP,
+                this.mContext.getString(R.string.device_info_default));
+        if (!hexaVersion.isEmpty() && !hexaReleasetype.isEmpty())
+            return hexaVersion + " | " + hexaReleasetype;
+        else
+            return mContext.getString(R.string.hexa_version_default);
     }
 
     public boolean handlePreferenceTreeClick(Preference preference) {
