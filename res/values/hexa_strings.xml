@@ -18,4 +18,9 @@
 
     <!-- String for removal of sensitive info on about, depending on tap -->
     <string name="device_info_protected_single_press">Tap to show info</string>
+
+    <!-- About phone screen, Hexa version -->
+    <string name="hexa_version">Hexa version</string>
+    <string name="hexa_version_default">Unknown</string>
+    <string name="keywords_hexa_version">hexa version</string>
 </resources>
