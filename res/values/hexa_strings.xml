@@ -29,4 +29,8 @@
     <string name="selinux_status_disabled">Disabled</string>
     <string name="selinux_status_permissive">Permissive</string>
     <string name="selinux_status_enforcing">Enforcing</string>
+
+    <!-- Refresh rate -->
+    <string name="refresh_rate_title">Screen refresh rate</string>
+
 </resources>
